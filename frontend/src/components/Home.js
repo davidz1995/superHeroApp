@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Formulary from './Formulary'
+import Stats from './Stats'
 import Grid from './Grid'
 import Search from './Search'
-import { useEffect, useState } from 'react'
-import Formulary from './Formulary'
+import '../styles/home.css'
 
 function Home() {
 
@@ -13,10 +14,11 @@ function Home() {
     },[]);
 
     return (
-        <div>
+        <div className='home'>
         {key?
-            <div>
+            <div className='subcontainer_home'>
                 <Search/>
+                <Stats/>
                 <Grid/>
             </div>
             :

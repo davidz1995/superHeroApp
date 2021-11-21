@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_HEROES, ADD_HERO } from "./actionTypes";
+import { GET_HEROES, ADD_HERO, HERO_DETAIL, ADD_VILLAIN, DELETE_HERO, DELETE_VILLAIN } from "./actionTypes";
 import { API_URL } from '../../constants'
 
 export const getByName = (name) => {
@@ -22,6 +22,39 @@ export const addHero = (heroID) => {
         let error = [{name: 'Not found'}]
         if(response.status === 200) dispatch({type: ADD_HERO, payload: response.data})
         if(response.status === 404) dispatch({type: ADD_HERO, payload: error})
+        } 
+    }
+}
+
+export const addVillain = (villainID) => {
+    const API_KEY = process.env.REACT_APP_API_KEY
+    return async (dispatch) => {
+        if (villainID) {
+        const response = await axios.get(`${API_URL}${API_KEY}/${villainID}`)
+        let error = [{name: 'Not found'}]
+        if(response.status === 200) dispatch({type: ADD_VILLAIN, payload: response.data})
+        if(response.status === 404) dispatch({type: ADD_VILLAIN, payload: error})
+        } 
+    }
+}
+
+export const heroDetail = (id) => {
+    const API_KEY = process.env.REACT_APP_API_KEY
+    return async (dispatch) => {
+        if (id) {
+        const response = await axios.get(`${API_URL}${API_KEY}/${id}`)
+        let error = [{name: 'Not found'}]
+        if(response.status === 200) dispatch({type: HERO_DETAIL, payload: response.data})
+        if(response.status === 404) dispatch({type: HERO_DETAIL, payload: error})
+        } 
+    }
+}
+
+export const deleteById = (id) => {
+    return async (dispatch) => {
+        if (id) {
+        dispatch({type: DELETE_HERO, payload:id})
+        dispatch({type: DELETE_VILLAIN, payload:id})
         } 
     }
 }

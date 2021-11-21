@@ -1,11 +1,14 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Marvel&display=swap');
+#root{
+  background-color: black;
+  height: max-content;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  text-align: center;
+  font-family: 'Marvel', sans-serif;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

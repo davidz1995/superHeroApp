@@ -1,2 +1,6 @@
 export const GET_HEROES = 'GET_HEROES'
 export const ADD_HERO = 'ADD_HERO'
+export const ADD_VILLAIN = 'ADD_VILLAIN'
+export const HERO_DETAIL = 'HERO_DETAIL'
+export const DELETE_HERO = 'DELETE_HERO'
+export const DELETE_VILLAIN = 'DELETE_VILLAIN'
